@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laeeque Portfolio</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .resume>div {
+            min-height: 100vh;
+        }
+
+        .head {
+            margin-left: 100px;
+        }
+
+        .intro {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .about {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .about>img {
+            width: 130px;
+            border-radius: 50%;
+        }
+
+        .about>p {
+            width: 40%;
+            text-align: justify;
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .contact>h2 {
+            text-align: center;
+        }
+
+        button {
+            background-color: #11CDD4;
+            border-radius: 10%;
+            border: 0px;
+            padding: 10px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        button>a {
+            color: white;
+            text-decoration: none;
+        }
+
+        p,
+        li {
+            color: #40514E;
+        }
+
+        /* Education */
+        .card {
+            max-width: 200px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            min-height: 180px;
+            transition: transform 0.2s, background-color 0.2s;
+            width: 50%;
+            margin: 0 auto;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: bold;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .details {
+            margin-bottom: 15px;
+        }
+
+        .qualification {
+            margin-bottom: 10px;
+        }
+
+        .school {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .date {
+            color: #888;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 50px;
+            width: 60%;
+            margin: 0 auto;
+        }
+
+        .card:hover {
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+
+        /* Projects */
+        .pro {
+            width: 60%;
+            display: flex;
+            flex-shrink: 0;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 100px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            width: 25%;
+            height: 100px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, background-color 0.2s;
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        .project-card:hover {
+            transform: scale(1.1);
+            background-color: #f0f0f0;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            font-weight: bold;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .details {
+            margin-bottom: 15px;
+        }
+
+        .name {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #40514E;
+        }
+
+        .description {
+            color: #888;
+        }
+
+        .link-btn {
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.2s;
+        }
+
+        .project-card:hover .link-btn {
+            display: block;
+        }
+
+        /* Contact */
+        .contact {
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .head {
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+        }
+
+        h2 {
+            margin: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+
+        .contact-info-item {
+            flex-basis: calc(50% - 20px);
+            margin-bottom: 20px;
+        }
+
+        .footer {
+            color: wheat;
+            text-align: center;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            height: 218px;
+            margin: 0 20px; /* Add margins on the right and left sides */
+            background-color: #333;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: flex-start;
+        }
+
+        .social-link {
+            color: white;
+            text-decoration: none;
+
+            background-color: transparent;
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-link svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .footer p {
+            color: white;
+            margin: 0;
+            padding-right: 100px;
+        }
+
+        /* Styling */
+        /* Colors */
+        /* h1
+        h2
+        h3
+        p */
+
+        .bg {
+            background-color: #E3FDFD;
+        }
+
+        .footer-bg {
+            background-color: #71C9CE;
+        }
+
+        .h2 {
+            color: #A6E3E9;
+        }
+
+        .h3 {
+            color: #71C9CE;
+        }
+
+        .pp {
+            color: #40514E;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 767px) {
+            /* Mobile-specific styles here */
+            .resume {
+                padding: 10px;
+            }
+
+            .about>img {
+                width: 100px;
+            }
+
+            .about>p {
+                width: 100%;
+            }
+
+            .cards,
+            .pro {
+                width: 100%;
+                gap: 20px;
+            }
+        }
+
+        @media (min-width: 768px) and (max-width: 1023px) {
+            /* Tablet-specific styles here */
+            .resume {
+                padding: 20px;
+            }
+
+            .cards,
+            .pro {
+                width: 100%;
+                gap: 50px;
+            }
+        }
+
+        @media (min-width: 1024px) {
+            /* Laptop/desktop-specific styles here */
+        }
+
+        /* navbar */
+        /* Navbar Styles */
+        .navbar {
+            background-color: #71C9CE;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            position: fixed; /* Make the navbar sticky */
+            top: 0; /* Stick it to the top of the screen */
+            left: 0;
+            right: 0;
+            z-index: 100; /* Ensure it appears above other elements */
+        }
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.menu-icon .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 5px auto;
+    transition: background-color 0.3s ease;
+}
+
+.menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu li {
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.menu a:hover {
+    color: #fff;
+}
+
+/* Responsive Styles */
+@media (max-width: 767px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: #333;
+        padding: 20px;
+    }
+
+    .menu li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .menu-icon {
+        display: block;
+    }
+
+    .menu-icon .bar {
+        background-color: #fff;
+    }
+
+    .navbar-toggle:checked ~ .menu {
+        display: flex;
+    }
+}
+
+    /* line animation */
+    .clickable-text {
+            position: relative;
+            display: inline-block;
+            cursor: pointer;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .clickable-text::before {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+
+        /* Apply the hover animation */
+
+        .clickable-text:hover::before {
+            width: 100%;
+        }
+
+        /* Apply the click animation */
+
+        .clickable-text.clicked::before {
+            width: 100%;
+            transition: none; /* Disable the transition during click animation */
+            animation: underlineAnimation 1s linear;
+        }
+
+        /* Define the keyframes for the click animation */
+        @keyframes underlineAnimation {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        /* text typing animation */
+
+        .typing-text {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: px solid #71C9CE; /* Add a cursor effect */
+            animation: typingAnimation 1s steps(40, end) 1;
+        }
+
+        @keyframes typingAnimation {
+            0% {
+                width: 0;
+            }
+            100% {
+                width: 65%;
+            }
+        } 
+
+ 
+        .inline{
+            display: flex;
+        }
+
+        /* ----------------------------------------------- */
+
+        .fade-in-text {
+        opacity: 0; /* Start with 0 opacity (invisible) */
+        animation: fadeInAnimation 1s 1s forwards; /* Animation duration of 1 second, starts after 1 second, and holds the final state */
+        }
+
+        @keyframes fadeInAnimation {
+        to {
+            opacity: 1; /* Fade to full opacity (visible) */
+        }
+        }
+
+        /* -------------------------------------------------------- */
+
+        .animate-on-scroll {
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .animate-on-scroll.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ------------------------------------------------------------- */
+
+        .pt{ 
+            padding-top: 60px;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="resume ">
+
+        <!-- navbar -->
+        <nav class="navbar">
+            <input type="checkbox" id="navbar-toggle" class="navbar-toggle" style="visibility: hidden;">
+            <label for="navbar-toggle" class="menu-icon">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </label>
+            <ul class="menu">
+                <li><a href="#home" class="clickable-text" onclick="this.classList.add('clicked'); return false;">Home</a></li>
+                <li><a href="#about" class="clickable-text" onclick="this.classList.add('clicked'); return false;">About Me</a></li>
+                <li><a href="#education" class="clickable-text" onclick="this.classList.add('clicked'); return false;">Education</a></li>
+                <li><a href="#projects" class="clickable-text" onclick="this.classList.add('clicked'); return false;">Projects</a></li>
+                <li><a href="#contact" class="clickable-text" onclick="this.classList.add('clicked'); return false;">Contact Me</a></li>
+            </ul>
+        </nav>
+        
+
+        <!-- My brief introduction here -->
+        <div class="intro bg" id="home"> 
+            <h2 class="inline" style="color: #66BFBF; font-family: 'Sacramento', cursive; font-size: 90px; margin-bottom: 0px;"><div>I'm&nbsp;</div> <div class="typing-text">Laeeque</div></h2>
+            <h3 style="color: #66BFBF; font-family: 'Montserrat', sans-serif; margin-top: 0px; font-size: 30px;" class="fade-in-text">a <u>pro</u>grammer</h3>
+
+        </div>
+
+        <!-- About Me --> 
+        <div class="about animate-on-scroll pt" id="about">
+            <img src="./images/laeeque passport photo.png" alt="">
+            <br>
+            <h2 class="h2">Hello</h2> 
+            <p>Welcome to my portfolio website! I am <b>Shaikh Laeeque</b> a passionate web developer with a flair
+                for crafting captivating online experiences. Here, you'll find a showcase of my innovative projects and a glimpse into my skills in front-end and back-end development. Let's embark on a digital journey together!</p>
+        </div>
+
+        <!-- My Education -->
+        <div class="education animate-on-scroll pt" id="education">
+            <h2 class="h2" style="text-align: center;">Education</h2>
+
+            <div class="cards h3">
+                <div class="card h3">
+                    <div class="title">Master of Computer Application</div>
+                    <div class="details">
+                        <div class="qualification">
+                            <div class="school">Govt. College of Engineering, Aurangabad</div>
+                            <div class="date pp">2022-24</div>
+                            <div class="subtitle pp">CGPA : 8.8</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="title">Bachelor of Science</div>
+                    <div class="details">
+                        <div class="qualification">
+                            <div class="school">Sir Syyed College, Aurangabad</div>
+                            <div class="date pp">2019-22</div>
+                            <div class="subtitle pp">Percentage: 72%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="title">12th</div>
+                    <div class="details">
+                        <div class="qualification">
+                            <div class="school">Maulana Azad College, Aurangabad</div>
+                            <div class="date pp">2017-19</div>
+                            <div class="subtitle pp">Percentage : 64%</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="title">10th</div>
+                    <div class="details">
+                        <div class="qualification">
+                            <div class="school">Sarosh Urdu High School, Aurangabad</div>
+                            <div class="date pp">2016-17</div>
+                            <div class="subtitle pp">Percentage : 77%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- My Skills -->
+
+        <!-- My Projects -->
+        <div class="projects animate-on-scroll pt" id="projects">
+            <h2 class="head h2">Projects</h2>
+            <div class="pro">
+                <div class="project-card">
+                    <div class="title h3">Project 1</div>
+                    <div class="details">
+                        <div class="name">HTML Portfolio Website</div>
+                        <a class="link-btn" href="https://sk-laeeque.github.io/portfolio" target="_blank">Go to Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="title h3">Project 2</div>
+                    <div class="details">
+                        <div class="name">Move It</div>
+                        <a class="link-btn" href="https://sk-laeeque.github.io/moveit" target="_blank">Go to Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="title h3">Project 3</div>
+                    <div class="details">
+                        <div class="name">TinDog</div>
+                        <a class="link-btn" href="https://sk-laeeque.github.io/tindog" target="_blank">Go to Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="title h3">Project 4</div>
+                    <div class="details">
+                        <div class="name">More to come...</div>
+                        <a class="link-btn" href="..." target="_blank">Go to Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Me -->
+        <div class="contact animate-on-scroll pt" id="contact">
+            <header class="head">
+                <h2 class="h2">Contact Me</h2>
+            </header>
+
+            <div class="container">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <h3 class="h3">Email</h3>
+                        <p class="pp">iamlaeeque@gmail.com</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h3 class="h3">Phone</h3>
+                        <p class="pp">+91 - 9284119270</p>
+                    </div>
+                    <div class="contact-info-item">
+                        <h3 class="h3">Address</h3>
+                        <p class="pp">City Chowk, Aurangabad, India</p>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer footer-bg">
+                <div class="social-links">
+                    <a class="social-link" href="#">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 512 512">
+                            <!-- Your Twitter icon SVG path goes here -->
+                        </svg>
+                        Twitter
+                    </a>
+                    <a class="social-link" href="#">
+                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!-- Your Facebook icon SVG path goes here -->
+                        </svg> 
+                        Facebook
+                    </a>
+                    <a class="social-link" href="#">
+                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!-- Your Instagram icon SVG path goes here -->
+                        </svg>
+                        Instagram
+                    </a>
+                    <a class="social-link" href="#">
+                        <svg width="30" height="30" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <!-- Your LinkedIn icon SVG path goes here -->
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+                <div>
+                    <p>&copy; 2023 ShaikhLaeeque. All rights reserved.</p>
+                </div>
+            </footer>
+        </div>
+
+    </div>
+</body>
+
+<script>
+    // Function to add the animation class when element is in viewport
+    function animateOnScroll(entries, observer) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }
+
+    // Options for the Intersection Observer
+    const options = {
+        threshold: 0.5 // Percentage of element visibility needed to trigger the animation
+    };
+
+    // Create the Intersection Observer
+    const observer = new IntersectionObserver(animateOnScroll, options);
+
+    // Select all elements with the class 'animate-on-scroll'
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    // Start observing each element
+    animateElements.forEach(element => {
+        observer.observe(element);
+    });
+</script>
+
+
+</html>
